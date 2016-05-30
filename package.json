@@ -4,13 +4,15 @@
   "description": "",
   "main": "build/src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretest": "npm run compile",
+    "test": "npm run testonly",
     "clear": "rimraf build",
     "compile": "tsc",
     "lint": "tslint -e src/*.ts",
     "watch": "tsc -w",
     "prepublish": "npm run compile",
-    "publish-meteor": "npm run prepublish && meteor publish"
+    "publish-meteor": "npm run prepublish && meteor publish",
+    "testonly": "mocha --reporter spec --full-trace build/tests/index.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
   },
   "homepage": "https://github.com/urigo/meteor-static-html-compiler#readme",
   "devDependencies": {
+    "mocha": "^2.5.3",
     "rimraf": "^2.5.2",
     "tsc": "^1.20150623.0",
     "tslint": "^3.9.0",

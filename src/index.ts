@@ -34,8 +34,8 @@ export class StaticHtmlCompiler {
   private templateHtmlCompiler: ITemplateHtmlCompiler;
 
   constructor(
-    mainHtmlCompiler: IBaseHtmlCompiler,
-    templateHtmlCompiler: ITemplateHtmlCompiler
+    mainHtmlCompiler?: IBaseHtmlCompiler,
+    templateHtmlCompiler?: ITemplateHtmlCompiler
   ) {
     this.mainHtmlCompiler = mainHtmlCompiler || new MainHtmlCompiler;
     this.templateHtmlCompiler = templateHtmlCompiler || new TemplateHtmlCompiler;
